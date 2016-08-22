@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test in Motion</title>
+    <link rel="stylesheet" type="text/css" href="css/tim.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope">
+</head>
+
+<body>
+  <div id="header">
+    <div id="nav">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <span style="word-spacing: normal; color: white; font-family: 'Annie Use Your Telescope', Arial, Serif;
+        font-size: 20px;">
+            <--Click a link to see the page in action
+        </span>
+    </div>
+  </div>
+
+  <div id="page-wrap">
+      <div id="page1">
+        <a name="about"></a>
+        <div class="page-padding"></div>
+        <p>This is what you see on the About page</p>
+      </div>
+      <div id="page2">
+          <a name="portfolio"></a>
+          <div class="page-padding"></div>
+          <p>This is what you see on the Portfolio page</p>
+      </div>
+      <div id="page3">
+          <a name="contact"></a>
+          <div class="page-padding"></div>
+          <p>This is what you see on the Contact page</p>
+      </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          function filterPath(string) {
+              return string
+                      .replace(/^\//,'')
+                      .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+                      .replace(/\/$/,'');
+          }
+          $('a[href*=#]').each(function () {
+              if ( filterPath(location.pathname) == filterPath(this.pathname) &&
+                              location.hostname == this.hostname &&
+                              this.hash.replace(/#/,'')
+              ) {
+                  var $targetId = $(this.hash),
+                          $targetAnchor = $('[name=' + this.hash.slice(1) + ']');
+                  var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+                  if ($target) {
+                      // offset() method returns the position (in pixels) of the first element in the set
+                      // relative to the document origin.
+                      // returns an object that contains two properties: top and left
+                      var targetOffset = $target.offset().top;
+                      // passing "this" in $() as parameter so that we can call jQuery methods and functions
+                      $(this).click(function () {
+                          // Using jQuery's animate() method to add smooth page scroll
+                          // The optional number (2000) specifies the number of mseconds it takes
+                          // to scroll to the specified area
+                          $('html, body').animate({scrollTop: targetOffset}, 2000);
+                          return false;
+                      });
+                  }
+              }
+          });
+      });
+  </script>
+</body>
+
+</html>
