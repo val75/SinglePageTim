@@ -5,8 +5,7 @@
 
 /** Begin reset */
 * {
-    margin  : 0;
-    padding : 0;
+    margin  : 0 auto;
 }
 /** End reset */
 
@@ -19,7 +18,7 @@ body {
 }
 
 a {
-    color           : white;
+    color           : #b21527;
     text-decoration : none;
 }
 
@@ -33,13 +32,20 @@ a:hover {
     position   : fixed;
     top        : 0px;
     left       : 0px;
-    background : #666;
-    height     : 70px;
+    background : white;
+    height     : 75px;
     width      : 100%;
 }
 
+#logo {
+    float  : left;
+    height : 70px;
+    width  : 270px;
+}
+
 #nav {
-    margin-left  : 50px;
+    float        : left;
+    margin-left  : 300px;
     margin-top   : 45px;
     word-spacing : 20px;
 }
@@ -47,7 +53,7 @@ a:hover {
 #page1 {
     height      : 1100px;
     width       : 1000px;
-    background  : #afc9ff;
+    background  : url("../images/TestInMotion02-09-02-bkg.png");
     padding-top : 110px;
 }
 
@@ -58,12 +64,6 @@ a:hover {
     padding-top : 150px;
 }
 
-#page3 {
-    height      : 1100px;
-    width       : 1000px;
-    background  : #9b70c0;
-    padding-top : 150px;
-}
 /** End tim namespace selectors */
 
 /** Begin utility selectors */

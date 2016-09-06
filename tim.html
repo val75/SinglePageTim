@@ -9,14 +9,12 @@
 
 <body>
   <div id="header">
+      <a id="logo" href="#">
+          <img src="images/TestInMotion02-08-01.png" alt="testinmotion.com">
+      </a>
     <div id="nav">
         <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
-        <span style="word-spacing: normal; color: white; font-family: 'Annie Use Your Telescope', Arial, Serif;
-        font-size: 20px;">
-            <--Click a link to see the page in action
-        </span>
     </div>
   </div>
 
@@ -27,11 +25,6 @@
         <p>This is what you see on the About page</p>
       </div>
       <div id="page2">
-          <a name="portfolio"></a>
-          <div class="page-padding"></div>
-          <p>This is what you see on the Portfolio page</p>
-      </div>
-      <div id="page3">
           <a name="contact"></a>
           <div class="page-padding"></div>
           <p>This is what you see on the Contact page</p>
@@ -48,11 +41,13 @@
                       .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
                       .replace(/\/$/,'');
           }
+
           $('a[href*=#]').each(function () {
               if ( filterPath(location.pathname) == filterPath(this.pathname) &&
                               location.hostname == this.hostname &&
                               this.hash.replace(/#/,'')
               ) {
+                  // Store hash
                   var $targetId = $(this.hash),
                           $targetAnchor = $('[name=' + this.hash.slice(1) + ']');
                   var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
